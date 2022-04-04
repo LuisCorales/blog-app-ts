@@ -12,6 +12,7 @@ import router from "./routes/index";
 // Set app and port
 const app = express();
 const port = 5500;
+app.set('port', process.env.PORT || 5500)
 
 // Use json
 app.use(express.json());
@@ -25,6 +26,6 @@ app.use((req: Request, res: Response) => {
 });
 
 // Run app
-app.listen(port, () => {
+app.listen(app.get('port'), () => {
     console.log("The API is running on http://localhost:" + port);
 });
